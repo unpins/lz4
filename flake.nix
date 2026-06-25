@@ -18,6 +18,12 @@
     lib.mkStandaloneFlake {
       inherit self;
       name = "lz4";
+
+      # Build via the unpin-llvm engine + emit a bitcode multicall module.
+      engine = "unpin-llvm";
+      multicall = {
+        programs = [{ name = "lz4"; aliases = [ "lz4cat" "unlz4" ]; }];
+      };
       # `lz4 --version` → "*** lz4 v1.10.0 64-bit …, by Yann Collet ***" on every
       # target (native/darwin/wine). Match the stable author string, not the
       # version number, so a future nixpkgs lz4 bump doesn't silently break smoke.

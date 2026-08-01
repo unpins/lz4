@@ -30,10 +30,8 @@
       smoke = [ "--version" ];
       smokePattern = "Yann Collet";
       build = pkgs:
-        lib.withAliases pkgs { primary = "lz4"; aliases = [ "lz4cat" "unlz4" ]; }
-          pkgs.pkgsStatic.lz4;
+        pkgs.pkgsStatic.lz4;
       windowsBuild = pkgs:
-        lib.withAliases pkgs { primary = "lz4.exe"; aliases = [ "lz4cat" "unlz4" ]; }
-          (lib.mingwStaticCross pkgs).lz4;
+        (lib.mingwStaticCross pkgs).lz4;
     };
 }

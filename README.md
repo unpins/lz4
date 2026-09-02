@@ -1,6 +1,6 @@
 # lz4
 
-[lz4](https://github.com/lz4/lz4) — extremely fast lossless compression (the `lz4` command-line tool, plus the `lz4cat` and `unlz4` shortcuts). A single self-contained binary, built natively for Linux, macOS, and Windows.
+[lz4](https://github.com/lz4/lz4) — extremely fast lossless compression (the `lz4` command-line program, plus the `lz4cat` and `unlz4` shortcuts). A single self-contained binary, built natively for Linux, macOS, and Windows.
 
 [![CI](https://github.com/unpins/lz4/actions/workflows/lz4.yml/badge.svg)](https://github.com/unpins/lz4/actions)
 ![Linux](https://img.shields.io/badge/Linux-✓-success?logo=linux&logoColor=white)

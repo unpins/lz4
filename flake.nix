@@ -23,6 +23,8 @@
       # Build via the unpin-llvm engine + emit a bitcode multicall module.
       engine = "unpin-llvm";
       multicall = {
+        # The `.exe` on the engine too, not the nixpkgs mingw-gcc cross.
+        windows = true;
         programs = [{ name = "lz4"; aliases = [ "lz4cat" "unlz4" ]; }];
       };
       # `lz4 --version` → "*** lz4 v1.10.0 64-bit …, by Yann Collet ***" on every

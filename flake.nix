@@ -31,7 +31,17 @@
       smoke = [ "--version" ];
       smokePattern = "Yann Collet";
       build = pkgs:
-        pkgs.pkgsStatic.lz4;
+        pkgs.pkgsStatic.lz4.overrideAttrs (_: {
+          # Off, and not by inheritance. lz4's suite lives in `tests/Makefile`,
+          # which belongs to the plain make build; nixpkgs builds `build/cmake`,
+          # and that project defines no tests at all — no `enable_testing`, no
+          # `add_test`. Its `checkTarget = "test"` is a leftover. Turning
+          # doCheck on first fails to EVALUATE — nixpkgs adds valgrind to
+          # buildInputs under `finalPackage.doCheck`, and there is no valgrind
+          # for musl — and with that stubbed out it fails to BUILD, on "No rule
+          # to make target 'test'". Both measured, in that order.
+          doCheck = false;
+        });
       # lz4's CMake writes the `lz4cat`/`unlz4` man aliases inside
       # `if(UNIX AND LZ4_BUILD_CLI)`, so the mingw cross installs `lz4.1` alone
       # while lz4cli.c still self-dispatches both names on every OS — two

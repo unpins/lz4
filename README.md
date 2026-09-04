@@ -27,6 +27,10 @@ unpin install lz4
 
 `unpin install lz4` creates `lz4`, `lz4cat` (= `lz4 -dc`) and `unlz4` (= `lz4 -d`). `unpin info lz4` lists them.
 
+## Man pages
+
+The `lz4`, `lz4cat` and `unlz4` pages are embedded in the binary — read them with `unpin man lz4`, `unpin man lz4 lz4cat` and `unpin man lz4 unlz4`.
+
 ## Build locally
 
 ```bash
@@ -50,6 +54,5 @@ The [Releases](https://github.com/unpins/lz4/releases) page has standalone binar
 
 - **Platforms:** Linux (x86_64, i686, ppc64le, riscv64, aarch64, armv7l), macOS (x86_64, aarch64), Windows (x86_64).
 - **Aliases:** `lz4cat`/`unlz4` are `argv[0]`-dispatch names of the one `lz4` binary, embedded as unpin aliases.
-- **Windows:** a single static `lz4.exe` cross-compiled with mingw-w64 — no companion DLLs.
-- **Man pages:** the `lz4`/`lz4cat`/`unlz4` pages are embedded; read with `unpin man lz4`.
+- **Windows:** a single `lz4.exe` targeting the mingw-w64 runtime — no companion DLLs.
 - **Tests:** lz4's upstream `make test` is a long-running fuzzer/benchmark harness (not a quick pass/fail suite), so it isn't wired into the build; the release smoke test exercises a compress/decompress round-trip instead.

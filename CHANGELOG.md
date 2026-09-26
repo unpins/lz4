@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.10.0-1] - 2026-09-26
+
 Initial release — `lz4` 1.10.0 as a single self-contained binary, built
 natively for Linux, macOS, and Windows.
 
